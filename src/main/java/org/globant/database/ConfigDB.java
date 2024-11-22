@@ -18,7 +18,7 @@ public class ConfigDB {
 
             //Create the connection variables
 
-            String url = "jdbc:mysql://localhost:3306/voluntary";
+            String url = "jdbc:mysql://localhost:3306/rental_machines";
             String user = "root";
             String password = "Exito!2025";
 
