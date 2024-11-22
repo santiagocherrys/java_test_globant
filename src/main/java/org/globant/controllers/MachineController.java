@@ -50,6 +50,24 @@ public class MachineController {
         JOptionPane.showMessageDialog(null, machine.toString());
     }
 
+    public static void createByExcel(){
+        //Use the model
+        MachineModel objMachineModel = new MachineModel();
+        int cont = 0;
+        for(Machine machine: pruebaleerMachine()){
+            //this validation is to avoid add to  table machines title of Model and Serie
+            if(cont != 0){
+                Machine machineAux = new Machine(machine.getModel(),machine.getSerie(),MachineStatus.valueOf("AVAILABLE"));
+                machine =  objMachineModel.insertByExcel(machineAux);
+            }
+            cont +=1;
+
+        }
+
+
+
+    }
+
     public static void getAll(){
         MachineModel objMode = new MachineModel();
         String machines = "MACHINES LIST \n";
@@ -246,6 +264,5 @@ public class MachineController {
 
         return machinesList;
     }
-
 
 }

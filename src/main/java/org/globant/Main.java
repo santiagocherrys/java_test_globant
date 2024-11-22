@@ -39,12 +39,18 @@ public class Main {
                     MachineController.getAll();
                     break;
                 case "5":
-                    //MachineController.pruebaleer();
+                    //Example for read from file from tutorial
                     List<Country> list = MachineController.pruebaleer();
                     System.out.println("Country List\n"+list);
 
+
+                    //now add machine from tutorial
+
                     List<Machine> listmachine = MachineController.pruebaleerMachine();
                     System.out.println("Country List\n"+listmachine);
+
+                    //createbyexcel
+                    MachineController.createByExcel();
 
                     break;
                 case "6":
@@ -66,7 +72,7 @@ public class Main {
                     2. List all customer
                     3. Create a Machine
                     4. List machines by 5 registers
-                    5. read
+                    5. Add several machines from excel
                     6. exit
                     
                     Choose an option:
