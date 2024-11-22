@@ -12,6 +12,11 @@ public class Machine {
     public Machine() {
     }
 
+    public Machine(String model, String serie) {
+        this.model = model;
+        this.serie = serie;
+    }
+
     public Machine(String model, String serie, MachineStatus state) {
         this.model = model;
         this.serie = serie;

@@ -3,7 +3,9 @@ package org.globant;
 import org.globant.controllers.CustomerController;
 import org.globant.controllers.MachineController;
 import org.globant.database.ConfigDB;
+import org.globant.entity.Country;
 import org.globant.entity.Customer;
+import org.globant.entity.Machine;
 
 import javax.swing.*;
 import java.util.List;
@@ -37,6 +39,15 @@ public class Main {
                     MachineController.getAll();
                     break;
                 case "5":
+                    //MachineController.pruebaleer();
+                    List<Country> list = MachineController.pruebaleer();
+                    System.out.println("Country List\n"+list);
+
+                    List<Machine> listmachine = MachineController.pruebaleerMachine();
+                    System.out.println("Country List\n"+listmachine);
+
+                    break;
+                case "6":
                     JOptionPane.showMessageDialog(null, "Have a good day");
                     exit = true;
                     break;
@@ -55,7 +66,8 @@ public class Main {
                     2. List all customer
                     3. Create a Machine
                     4. List machines by 5 registers
-                    5. exit
+                    5. read
+                    6. exit
                     
                     Choose an option:
                     """);
