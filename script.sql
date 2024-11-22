@@ -18,6 +18,7 @@ CREATE TABLE rentals(
 	id INT PRIMARY KEY AUTO_INCREMENT,
     start_date DATE NOT NULL,
     end_date DATE NOT NULL,
+    state ENUM('ACTIVE', 'INACTIVE') NOT NULL,
     customer_id INT,
     rental_machine_id INT,
     FOREIGN KEY (customer_id) REFERENCES customers(id) ON DELETE CASCADE,
@@ -27,7 +28,7 @@ CREATE TABLE rentals(
 CREATE TABLE machines(
 	id INT PRIMARY KEY AUTO_INCREMENT,
     model VARCHAR(70) NOT NULL,
-    serie INT UNIQUE NOT NULL,
+    serie VARCHAR(100) UNIQUE NOT NULL,
     state ENUM('AVAILABLE', 'RENTED') NOT NULL,
     rental_machine_id INT,
     FOREIGN KEY (rental_machine_id) REFERENCES rental_machine(id) ON DELETE CASCADE

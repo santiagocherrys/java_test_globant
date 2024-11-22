@@ -11,7 +11,7 @@ public class CustomerController {
         //Use the model
         CustomerModel objCustomerModel = new CustomerModel();
 
-        //Ask data to the coder
+        //Ask data to the admin
         String name = JOptionPane.showInputDialog(("Insert name"));
         String email = JOptionPane.showInputDialog("Insert email");
         String phone = JOptionPane.showInputDialog("Insert phone");
@@ -20,7 +20,7 @@ public class CustomerController {
 
         Customer customer = new Customer(name, email, phone, address);
 
-        //Call the method of insertion y save the object that returns in user
+        //Call the method of insertion y save the object that returns in customer
         customer =  objCustomerModel.insert(customer);
 
         JOptionPane.showMessageDialog(null, customer.toString());
