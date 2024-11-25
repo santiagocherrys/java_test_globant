@@ -163,4 +163,43 @@ public class MachineModel {
 
         return machines;
     }
+
+    public boolean setToRented(int machine_id, int rental_machine_id){
+        //1. Open the connection
+        Connection objConnection = ConfigDB.openConnection();
+
+        //3. Variable to know the state of the action
+        boolean isUpdated = false;
+
+        try{
+            //4. Create the sql query
+            String sql = "UPDATE machines set state = 'RENTED', rental_machine_id = ? WHERE id = ?;";
+
+            //5. Create the statement
+            PreparedStatement objPrepare = objConnection.prepareStatement(sql);
+
+            //6. set value to the parameter of the Query
+            objPrepare.setInt(1, rental_machine_id);
+            objPrepare.setInt(2, machine_id);
+
+
+            //7. Execute the query
+            //Execute  -> return boolean
+            //ExecuteUpdate -> return the raws affected
+            //ExecuteQuery -> return the result
+
+            int totalRowAffected = objPrepare.executeUpdate();
+
+            if(totalRowAffected >0){
+                isUpdated = true;
+                JOptionPane.showMessageDialog(null, "The update was successful. ");
+            }
+        }catch (Exception e){
+            JOptionPane.showMessageDialog(null, e.getMessage());
+        }finally {
+            ConfigDB.closeConnection();
+        }
+
+        return isUpdated;
+    }
 }

@@ -96,14 +96,16 @@ public class MachineController {
 
     }
 
-    public static String getAllString(){
-        CustomerModel objMode = new CustomerModel();
-        String listCustomers = "CUSTOMER LIST \n";
+    public static String getAllAvailableString(){
+        MachineModel objMode = new MachineModel();
+        String listMachines = "MACHINE LIST \n";
 
-        for(Customer customer: objMode.findAll()){
-            listCustomers += customer.toString() + "\n";
+        for(Machine machine: objMode.findAll()){
+            if(machine.getState().name().equals("AVAILABLE")) {
+                listMachines += machine.toString() + "\n";
+            }
         }
-        return listCustomers;
+        return listMachines;
     }
 
     public static List<Country> pruebaleer() {
@@ -263,6 +265,11 @@ public class MachineController {
         }
 
         return machinesList;
+    }
+
+    public static void setMachineRented(int machine_id, int rental_machine_id){
+        MachineModel objMode = new MachineModel();
+        objMode.setToRented(machine_id, rental_machine_id);
     }
 
 }

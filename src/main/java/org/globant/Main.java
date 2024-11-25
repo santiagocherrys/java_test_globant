@@ -2,6 +2,7 @@ package org.globant;
 
 import org.globant.controllers.CustomerController;
 import org.globant.controllers.MachineController;
+import org.globant.controllers.RentalController;
 import org.globant.database.ConfigDB;
 import org.globant.entity.Country;
 import org.globant.entity.Customer;
@@ -47,13 +48,18 @@ public class Main {
                     //now add machine from tutorial
 
                     List<Machine> listmachine = MachineController.pruebaleerMachine();
-                    System.out.println("Country List\n"+listmachine);
+                    System.out.println("Machine List\n"+listmachine);
 
                     //createbyexcel
                     MachineController.createByExcel();
 
                     break;
                 case "6":
+                    //Create a rental
+                    RentalController.create();
+
+                    break;
+                case "7":
                     JOptionPane.showMessageDialog(null, "Have a good day");
                     exit = true;
                     break;
@@ -73,7 +79,8 @@ public class Main {
                     3. Create a Machine
                     4. List machines by 5 registers
                     5. Add several machines from excel
-                    6. exit
+                    6. create a rental
+                    7. exit
                     
                     Choose an option:
                     """);
